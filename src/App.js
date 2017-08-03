@@ -1,19 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import RandomPeople from './components/RandomPeople';
+import axios from 'axios';
+import Image from './components/Images';
+const PEOPLE_URL= `https://randomuser.me/api/`;
+
 
 class App extends Component {
+   constructor(props){
+
+
+     super(props);
+
+     this.state={
+       cell:0,
+       picture:''
+
+     }
+       this.getPeople();
+   }
+
+
+getPeople=()=>{
+    axios.get(PEOPLE_URL)
+    .then((response)=>{
+        
+        this.setState({
+          cell: response.data.results[0],
+          picture: response.data.results[0].picture
+        
+
+        },()=>
+      console.log(this.state.cell))
+    })
+}
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <div className="container"> 
+  
+    <Image value={this.state.picture}/>
+    <RandomPeople value={this.state.cell}/>
+    
+
+    </div>
     );
   }
 }
