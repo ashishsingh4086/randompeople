@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 
 class Images extends Component {
-    render(){
-        return(
+    render() {
+        return (
             <div className="mainPage">
-            <img src={this.props.value.large} alt="person" />
+                <img src={this.props.value.large} alt="person" />
             </div>
         )
     }
