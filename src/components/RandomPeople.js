@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class RandomPeople extends Component {
+     /*
+    * This class does not require constructor or super because it is not initializing or changing state
+    * Passes the user details  to the parent component
+    * Since this.props.value is an object and contains values mapping is done using Object.Key
+    */
     render() {
         return (
             <div className=" jumbotron mainPage" >
